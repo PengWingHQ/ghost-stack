@@ -6,7 +6,9 @@ import typer
 
 from ghoststack import __version__
 from ghoststack.commands.init import init_command
+from ghoststack.commands.review import review_command
 from ghoststack.commands.stack import app as stack_app
+from ghoststack.commands.brain import app as brain_app
 from ghoststack.utils.output import set_json_mode
 
 # Create main app
@@ -58,7 +60,9 @@ def main(
 
 # Register commands
 app.command("init")(init_command)
+app.command("review")(review_command)
 app.add_typer(stack_app, name="stack")
+app.add_typer(brain_app, name="brain")
 
 
 # Add status command for quick overview
